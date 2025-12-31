@@ -29,7 +29,13 @@ export const todoSlice = createSlice({
             // Remove the todo with the given id
             // Filter out the todo to be deleted
             // and return a new array without it
-            state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+            state.todos = state.todos.filter((todo) => {
+                todo.id !== action.payload
+            });
         }
     },
 }); 
+
+export const { addTodo, markAsDone, deleteTodo } = todoSlice.actions;
+
+export default todoSlice.reducer; 
